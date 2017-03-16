@@ -1,5 +1,8 @@
 *.class
 *.log
+*.idea
+*.idea/*
+*.g8/
 
 # sbt specific
 .cache

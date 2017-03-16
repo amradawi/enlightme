@@ -1,0 +1,4 @@
+//appDependenciesval appDependencies = Seq(
+//  jdbc
+//
+//)

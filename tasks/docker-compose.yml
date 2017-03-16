@@ -1,0 +1,13 @@
+version: '2'
+
+services:
+    orientdb:
+        image: orientdb:latest
+        container_name: orientdb
+        environment:
+          - ORIENTDB_ROOT_PASSWORD=rootpwd
+        volumes:
+          - /Users/amradawi/Desktop/orientdb/databases:/orientdb/databases
+        ports:
+          - 2424:2424
+          - 2480:2480
