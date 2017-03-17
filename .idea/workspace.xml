@@ -2,73 +2,10 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="a8238635-6ff9-4e48-bae7-d63c3556758a" name="Default" comment="">
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/gradle/wrapper/gradle-wrapper.jar" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/public/images/favicon.png" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/.g8/form/app/controllers/$model__Camel$Controller.scala" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/.g8/form/app/views/$model__camel$/form.scala.html" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/.g8/form/default.properties" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/.g8/form/generated-test/README.md" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/.g8/form/generated-test/controllers/$model__Camel$ControllerSpec.scala" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/.idea/.name" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/.idea/libraries/SBT__com_carrotsearch_hppc_0_6_0_jar.xml" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/.idea/libraries/SBT__com_googlecode_concurrentlinkedhashmap_concurrentlinkedhashmap_lru_1_4_1_jar.xml" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/.idea/libraries/SBT__com_orientechnologies_orient_commons_2_0_M1_jar.xml" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/.idea/libraries/SBT__com_orientechnologies_orientdb_client_2_2_3_jar.xml" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/.idea/libraries/SBT__com_orientechnologies_orientdb_core_2_2_17_jar.xml" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/.idea/libraries/SBT__com_orientechnologies_orientdb_graphdb_2_2_3_jar.xml" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/.idea/libraries/SBT__com_orientechnologies_orientdb_object_2_2_17_jar.xml" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/.idea/libraries/SBT__com_orientechnologies_orientdb_server_2_2_3_jar.xml" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/.idea/libraries/SBT__com_orientechnologies_orientdb_tools_2_2_3_jar.xml" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/.idea/libraries/SBT__com_tinkerpop_blueprints_blueprints_core_2_6_0_jar.xml" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/.idea/libraries/SBT__commons_beanutils_commons_beanutils_1_7_0_jar.xml" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/.idea/libraries/SBT__commons_beanutils_commons_beanutils_core_1_8_0_jar.xml" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/.idea/libraries/SBT__commons_collections_commons_collections_3_2_2_jar.xml" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/.idea/libraries/SBT__commons_configuration_commons_configuration_1_6_jar.xml" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/.idea/libraries/SBT__commons_digester_commons_digester_1_8_jar.xml" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/.idea/libraries/SBT__commons_lang_commons_lang_2_4_jar.xml" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/.idea/libraries/SBT__commons_logging_commons_logging_1_1_1_jar.xml" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/.idea/libraries/SBT__javax_activation_activation_1_1_jar.xml" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/.idea/libraries/SBT__javax_mail_mail_1_4_7_jar.xml" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/.idea/libraries/SBT__javax_persistence_persistence_api_1_0_rev_1_jar.xml" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/.idea/libraries/SBT__mysql_mysql_connector_java_5_1_6_jar.xml" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/.idea/libraries/SBT__org_codehaus_jettison_jettison_1_3_3_jar.xml" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/.idea/libraries/SBT__org_hibernate_javax_persistence_hibernate_jpa_2_0_api_1_0_0_Final_jar.xml" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/.idea/libraries/SBT__org_javassist_javassist_3_16_1_GA_jar.xml" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/.idea/libraries/SBT__org_xerial_snappy_snappy_java_1_1_0_1_jar.xml" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/.idea/libraries/SBT__stax_stax_api_1_0_1_jar.xml" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/.idea/misc.xml" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/.idea/modules.xml" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/.idea/modules/enlightme-build.iml" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/.idea/modules/enlightme.iml" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/.idea/sbt.xml" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/.idea/scala_compiler.xml" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/.idea/vcs.xml" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/app/Filters.scala" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/app/controllers/HomeController.scala" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/app/views/index.scala.html" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/app/views/main.scala.html" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/build.gradle" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/build.sbt" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/conf/application.conf" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/conf/logback.xml" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/conf/messages" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/conf/routes" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/gradle/wrapper/gradle-wrapper.properties" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/gradlew" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/gradlew.bat" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/project/build.properties" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/project/build.scala" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/project/plugins.sbt" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/project/scaffold.sbt" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/public/javascripts/main.js" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/public/stylesheets/main.css" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/src/main/scala/SchemaBuilder.scala" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/src/main/scala/orientDBQuestion.scala" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/src/main/scala/orientdbWrapper.scala" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/tasks/docker-compose.yml" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/test/controllers/HomeControllerSpec.scala" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.gitignore" afterPath="$PROJECT_DIR$/.gitignore" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/src/main/scala/crawler.scala" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/main/scala/SchemaBuilder.scala" afterPath="$PROJECT_DIR$/src/main/scala/SchemaBuilder.scala" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/main/scala/orientdbWrapper.scala" afterPath="$PROJECT_DIR$/src/main/scala/orientdbWrapper.scala" />
     </list>
     <ignored path="$PROJECT_DIR$/target/" />
     <ignored path="$PROJECT_DIR$/project/project/target/" />
@@ -117,7 +54,7 @@
       <file leaf-file-name="orientDBQuestion.scala" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/src/main/scala/orientDBQuestion.scala">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="390">
+            <state relative-caret-position="375">
               <caret line="28" column="13" lean-forward="false" selection-start-line="28" selection-start-column="13" selection-end-line="28" selection-end-column="13" />
               <folding>
                 <element signature="e#16#37#0" expanded="true" />
@@ -126,11 +63,11 @@
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="SchemaBuilder.scala" pinned="false" current-in-tab="false">
+      <file leaf-file-name="SchemaBuilder.scala" pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/src/main/scala/SchemaBuilder.scala">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="140">
-              <caret line="11" column="0" lean-forward="false" selection-start-line="11" selection-start-column="0" selection-end-line="13" selection-end-column="44" />
+            <state relative-caret-position="440">
+              <caret line="33" column="0" lean-forward="true" selection-start-line="33" selection-start-column="0" selection-end-line="33" selection-end-column="0" />
               <folding>
                 <element signature="e#15#77#0" expanded="true" />
               </folding>
@@ -138,25 +75,13 @@
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="orientdbWrapper.scala" pinned="false" current-in-tab="true">
+      <file leaf-file-name="orientdbWrapper.scala" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/src/main/scala/orientdbWrapper.scala">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="210">
-              <caret line="18" column="6" lean-forward="false" selection-start-line="18" selection-start-column="6" selection-end-line="18" selection-end-column="6" />
+            <state relative-caret-position="0">
+              <caret line="8" column="23" lean-forward="true" selection-start-line="8" selection-start-column="23" selection-end-line="8" selection-end-column="23" />
               <folding>
                 <element signature="e#0#62#0" expanded="true" />
-              </folding>
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="Filters.scala" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/app/Filters.scala">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="135">
-              <caret line="15" column="6" lean-forward="false" selection-start-line="15" selection-start-column="6" selection-end-line="15" selection-end-column="6" />
-              <folding>
-                <element signature="e#0#26#0" expanded="false" />
               </folding>
             </state>
           </provider>
@@ -165,11 +90,19 @@
       <file leaf-file-name="HomeController.scala" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/app/controllers/HomeController.scala">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="120">
-              <caret line="10" column="10" lean-forward="false" selection-start-line="9" selection-start-column="3" selection-end-line="10" selection-end-column="10" />
-              <folding>
-                <element signature="e#21#42#0" expanded="false" />
-              </folding>
+            <state relative-caret-position="150">
+              <caret line="12" column="0" lean-forward="true" selection-start-line="12" selection-start-column="0" selection-end-line="12" selection-end-column="0" />
+              <folding />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="crawler.scala" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/src/main/scala/crawler.scala">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="45">
+              <caret line="3" column="6" lean-forward="false" selection-start-line="3" selection-start-column="6" selection-end-line="3" selection-end-column="6" />
+              <folding />
             </state>
           </provider>
         </entry>
@@ -244,8 +177,8 @@
         <option value="$PROJECT_DIR$/src/main/scala/orientDBQuestion.scala" />
         <option value="$PROJECT_DIR$/build.sbt" />
         <option value="$PROJECT_DIR$/tasks/docker-compose.yml" />
-        <option value="$PROJECT_DIR$/src/main/scala/SchemaBuilder.scala" />
         <option value="$PROJECT_DIR$/src/main/scala/orientdbWrapper.scala" />
+        <option value="$PROJECT_DIR$/src/main/scala/SchemaBuilder.scala" />
       </list>
     </option>
   </component>
@@ -296,6 +229,28 @@
             </PATH_ELEMENT>
             <PATH_ELEMENT>
               <option name="myItemId" value="tasks" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+          </PATH>
+          <PATH>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="EnlightMe" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.ProjectViewProjectNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="enlightme" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="src" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="main" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="scala" />
               <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
             </PATH_ELEMENT>
           </PATH>
@@ -952,16 +907,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/app/Filters.scala">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="135">
-          <caret line="15" column="6" lean-forward="false" selection-start-line="15" selection-start-column="6" selection-end-line="15" selection-end-column="6" />
-          <folding>
-            <element signature="e#0#26#0" expanded="false" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/project/build.scala">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="45">
@@ -985,16 +930,6 @@
         <state relative-caret-position="15">
           <caret line="1" column="0" lean-forward="false" selection-start-line="1" selection-start-column="0" selection-end-line="1" selection-end-column="0" />
           <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/app/controllers/HomeController.scala">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="120">
-          <caret line="10" column="10" lean-forward="false" selection-start-line="9" selection-start-column="3" selection-end-line="10" selection-end-column="10" />
-          <folding>
-            <element signature="e#21#42#0" expanded="false" />
-          </folding>
         </state>
       </provider>
     </entry>
@@ -1030,19 +965,9 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/scala/SchemaBuilder.scala">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="140">
-          <caret line="11" column="0" lean-forward="false" selection-start-line="11" selection-start-column="0" selection-end-line="13" selection-end-column="44" />
-          <folding>
-            <element signature="e#15#77#0" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/src/main/scala/orientDBQuestion.scala">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="390">
+        <state relative-caret-position="375">
           <caret line="28" column="13" lean-forward="false" selection-start-line="28" selection-start-column="13" selection-end-line="28" selection-end-column="13" />
           <folding>
             <element signature="e#16#37#0" expanded="true" />
@@ -1050,12 +975,46 @@
         </state>
       </provider>
     </entry>
+    <entry file="file://$PROJECT_DIR$/app/Filters.scala">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="255">
+          <caret line="23" column="1" lean-forward="true" selection-start-line="23" selection-start-column="1" selection-end-line="23" selection-end-column="1" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/app/controllers/HomeController.scala">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="150">
+          <caret line="12" column="0" lean-forward="true" selection-start-line="12" selection-start-column="0" selection-end-line="12" selection-end-column="0" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/scala/crawler.scala">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="45">
+          <caret line="3" column="6" lean-forward="false" selection-start-line="3" selection-start-column="6" selection-end-line="3" selection-end-column="6" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
     <entry file="file://$PROJECT_DIR$/src/main/scala/orientdbWrapper.scala">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="210">
-          <caret line="18" column="6" lean-forward="false" selection-start-line="18" selection-start-column="6" selection-end-line="18" selection-end-column="6" />
+        <state relative-caret-position="0">
+          <caret line="8" column="23" lean-forward="true" selection-start-line="8" selection-start-column="23" selection-end-line="8" selection-end-column="23" />
           <folding>
             <element signature="e#0#62#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/scala/SchemaBuilder.scala">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="440">
+          <caret line="33" column="0" lean-forward="true" selection-start-line="33" selection-start-column="0" selection-end-line="33" selection-end-column="0" />
+          <folding>
+            <element signature="e#15#77#0" expanded="true" />
           </folding>
         </state>
       </provider>

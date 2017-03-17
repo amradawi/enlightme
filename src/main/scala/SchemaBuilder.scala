@@ -16,17 +16,21 @@ object SchemaBuilder {
     val user: OrientVertexType = graph.createVertexType("User")
     user.createProperty("firstName", OType.STRING)
     user.createProperty("lastName", OType.STRING)
-    user.createProperty("emailAddress", OType.STRING)
+    user.createProperty("username", OType.STRING)
 
     val tag: OrientVertexType = graph.createVertexType("Tag")
     tag.createProperty("Name", OType.STRING)
 
     val question: OrientVertexType = graph.createVertexType("Question")
     question.createProperty("Answer", OType.STRING)
+    question.createProperty("DetailedAnswer", OType.STRING)
     question.createProperty("Source", OType.STRING)
 
     val seen: OrientEdgeType = graph.createEdgeType("SeenQuestion")
-    seen.createProperty("seenQuestion", OType.INTEGER)
+    seen.createProperty("seenQuestionsCount", OType.INTEGER)
+
+    val related: OrientEdgeType = graph.createEdgeType("tagQuestionEdge")
+    related.createProperty("difficulty", OType.INTEGER)
 
   }
 

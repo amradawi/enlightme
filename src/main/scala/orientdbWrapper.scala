@@ -16,7 +16,7 @@ class OridentDBWrapper{
       user.setProperty("firstName", firstName)
       user.setProperty("lastName", lastName)
       user.setProperty("emailAddress", emailAddress)
-      
+
     }
     return DBStatus.OK
   }
