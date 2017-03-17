@@ -5,7 +5,7 @@ import com.tinkerpop.blueprints.impls.orient.{OrientEdgeType, OrientGraph, Orien
   * OrientDb Schema builder
   * Created by amradawi on 2017-03-14.
   */
-object SchemaBuilder {
+class SchemaBuilder {
 
   def createSchema(): Unit ={
 
@@ -34,9 +34,9 @@ object SchemaBuilder {
 
   }
 
-  def main(args: Array[String]): Unit = {
-    createSchema()
-  }
+//  def main(args: Array[String]): Unit = {
+//    createSchema()
+//  }
 }
 
 

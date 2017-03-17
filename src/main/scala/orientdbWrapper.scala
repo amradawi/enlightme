@@ -7,7 +7,7 @@ import com.tinkerpop.blueprints.impls.orient._
 val uri: String = "PLOCAL:/Users/amradawi/Desktop/orientdb/databases/enlightme_test"
 
 class OridentDBWrapper{
-  def createNewUser(firstName:String, lastName:String, emailAddress:String): DBStatus.status ={
+  def createNewUser(firstName:String, lastName:String, username:String): DBStatus.status ={
     val factory: OrientGraphFactory = new OrientGraphFactory(uri)
     val graph: OrientGraph = factory.getTx()
 
@@ -15,10 +15,11 @@ class OridentDBWrapper{
       val user: Vertex = graph.addVertex("class:User", Nil: _*)
       user.setProperty("firstName", firstName)
       user.setProperty("lastName", lastName)
-      user.setProperty("emailAddress", emailAddress)
-
+      user.setProperty("username", username)
+      DBStatus.OK
+    }else{
+      DBStatus.ERROR
     }
-    return DBStatus.OK
   }
 
   def createNewQuestion(): DBStatus.status={

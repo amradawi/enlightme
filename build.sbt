@@ -1,8 +1,8 @@
 name := "EnlightMe"
 
-version := "1.0"
+version := "0.4"
 
-//lazy val root = (project in file(".")).enablePlugins(PlayScala)
+lazy val root = (project in file(".")).enablePlugins(PlayScala)
 
 scalaVersion := "2.11.8"
 
@@ -26,4 +26,11 @@ libraryDependencies += "com.orientechnologies" % "orientdb-object" % "2.2.17"
 
 libraryDependencies ++= Seq(
   "com.orientechnologies" % "orientdb-graphdb" % "2.2.3"
+)
+libraryDependencies ++= Seq(
+  jdbc,
+  cache,
+  ws,
+  specs2 % Test,
+  "org.reactivemongo" %% "play2-reactivemongo" % "0.11.7.play24"
 )
