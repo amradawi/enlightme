@@ -1,3 +1,9 @@
+## Running orientdb 
+docker run -d --name orientdb -p 2424:2424 -p 2480:2480 -v /tmp/orientdb/databases/:/orientdb/databases -e ORIENTDB_ROOT_PASSWORD=rootpwd orientdb
+
+## building schema
+sbt run
+
 ## Welcome to GitHub Pages
 
 You can use the [editor on GitHub](https://github.com/amradawi/enlightme/edit/master/README.md) to maintain and preview the content for your website in Markdown files.
