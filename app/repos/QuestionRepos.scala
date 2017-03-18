@@ -1,15 +1,6 @@
 package repos
 
-import javax.inject.Inject
-
-import play.api.libs.json.{JsObject, Json}
-//import play.modules.reactivemongo.ReactiveMongoApi
-//import play.modules.reactivemongo.json._
-//import play.modules.reactivemongo.json.collection.JSONCollection
-//import reactivemongo.api.ReadPreference
-//import reactivemongo.api.commands.WriteResult
-//import reactivemongo.bson.{BSONDocument, BSONObjectID}
-
+import play.api.libs.json.JsObject
 import scala.concurrent.{ExecutionContext, Future}
 
 /**
