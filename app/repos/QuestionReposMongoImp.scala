@@ -2,19 +2,12 @@ package repos
 
 import play.api.libs.json.{JsObject, Json}
 import play.modules.reactivemongo.ReactiveMongoApi
-import play.modules.reactivemongo.json.collection.JSONCollection
-import reactivemongo.api.ReadPreference
-import reactivemongo.api.collections.bson.BSONCollection
-import reactivemongo.bson.BSONDocument
-import reactivemongo.api.commands.WriteResult
-
-import play.api.libs.json.{JsObject, Json}
-import play.modules.reactivemongo.ReactiveMongoApi
 import play.modules.reactivemongo.json._
 import play.modules.reactivemongo.json.collection.JSONCollection
 import reactivemongo.api.ReadPreference
 import reactivemongo.api.commands.WriteResult
 import reactivemongo.bson.{BSONDocument, BSONObjectID}
+
 
 import scala.concurrent.{ExecutionContext, Future}
 /**
@@ -23,6 +16,7 @@ import scala.concurrent.{ExecutionContext, Future}
 class QuestionReposMongoImp (reactiveMongoApi: ReactiveMongoApi) extends QuestionRepos[BSONDocument, WriteResult]{
 
   def collection = reactiveMongoApi.db.collection[JSONCollection]("questions")
+  def AggFramework = collection.BatchCommands.AggregationFramework
 
   override def find()(implicit ec: ExecutionContext): Future[List[JsObject]] = {
     val genericQueryBuilder = collection.find(Json.obj())
@@ -44,5 +38,9 @@ class QuestionReposMongoImp (reactiveMongoApi: ReactiveMongoApi) extends Questio
 
   override def save(document: BSONDocument)(implicit ec: ExecutionContext): Future[WriteResult] = {
     collection.save(document)
+  }
+
+  def randomDocument()(implicit  ec: ExecutionContext): Future[List[BSONDocument]] = {
+    collection.aggregate(AggFramework.Sample(1)).map(_.head[BSONDocument])
   }
 }

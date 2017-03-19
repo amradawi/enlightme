@@ -6,9 +6,12 @@ import play.api.libs.json.Json
 import repos.QuestionReposMongoImp
 import play.api.mvc._
 import play.modules.reactivemongo.{MongoController, ReactiveMongoApi, ReactiveMongoComponents}
-import reactivemongo.bson.{BSONDocument, BSONObjectID}
 import scala.concurrent._
 import ExecutionContext.Implicits.global
+import play.modules.reactivemongo.json._
+import play.modules.reactivemongo.json.collection.JSONCollection
+import reactivemongo.bson.{BSONDocument, BSONObjectID}
+
 /**
   * Created by amradawi on 2017-03-17.
   */
@@ -27,6 +30,8 @@ class QuestionController  @Inject()(val reactiveMongoApi: ReactiveMongoApi) exte
   }
 
   def questionsRepo = new QuestionReposMongoImp(reactiveMongoApi)
+
+  val r = scala.util.Random
 
   def index = Action.async { implicit request =>
     questionsRepo.find().map(questions => Ok(Json.toJson(questions)))
@@ -76,6 +81,10 @@ class QuestionController  @Inject()(val reactiveMongoApi: ReactiveMongoApi) exte
       Tags -> tags,
       Rate -> rate
     ))).map(result => Accepted)
+  }
+
+  def get_random_question() = Action.async { implicit  request =>
+    questionsRepo.randomDocument().map(question => Ok(Json.toJson(question)))
   }
 
 }
