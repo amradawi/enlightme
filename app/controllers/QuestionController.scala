@@ -14,13 +14,19 @@ import ExecutionContext.Implicits.global
   */
 class QuestionController  @Inject()(val reactiveMongoApi: ReactiveMongoApi) extends Controller with MongoController with ReactiveMongoComponents{
   import QuestionFields._
+
+
+  object QuestionFields {
+    val Id = "_id"
+    val Question ="question"
+    val Answer = "short_answer"
+    val DetailedAnswer = "long_answer"
+    val Difficulty = "difficulty"
+    val Tags = "tags"
+    val Rate = "rate"
+  }
+
   def questionsRepo = new QuestionReposMongoImp(reactiveMongoApi)
-
-  def add_question = TODO
-
-  def rate_question = TODO
-
-  def tag_question = TODO
 
   def index = Action.async { implicit request =>
     questionsRepo.find().map(questions => Ok(Json.toJson(questions)))
@@ -40,23 +46,36 @@ class QuestionController  @Inject()(val reactiveMongoApi: ReactiveMongoApi) exte
     val answer = (request.body \ Answer).as[String]
     val detailedAnswer = (request.body \ DetailedAnswer).as[String]
     val difficulty = (request.body \ Difficulty).as[String]
+    val tags =  (request.body \ Tags).as[String]
+    val rate = (request.body \ Rate).as[Int]
 
     questionsRepo.save(BSONDocument(
       Question -> question,
       Answer -> answer,
       DetailedAnswer -> detailedAnswer,
-      Difficulty -> difficulty
+      Difficulty -> difficulty,
+      Tags -> tags,
+      Rate -> rate
     )).map(result => Created)
   }
 
-  object QuestionFields {
-    val Id = "_id"
-    val Question ="question"
-    val Answer = "short_answer"
-    val DetailedAnswer = "long_answer"
-    val Difficulty = "difficulty"
-  }
+  def update(id: String) = Action.async(BodyParsers.parse.json) { implicit  request =>
 
-  def update(id: String) = TODO
+    val question = (request.body \ Question).as[String]
+    val answer = (request.body \ Answer).as[String]
+    val detailedAnswer = (request.body \ DetailedAnswer).as[String]
+    val difficulty = (request.body \ Difficulty).as[String]
+    val tags =  (request.body \ Tags).as[String]
+    val rate = (request.body \ Rate).as[Int]
+
+    questionsRepo.update(BSONDocument(Id -> BSONObjectID(id)), BSONDocument("$set" -> BSONDocument(
+      Question -> question,
+      Answer -> answer,
+      DetailedAnswer -> detailedAnswer,
+      Difficulty -> difficulty,
+      Tags -> tags,
+      Rate -> rate
+    ))).map(result => Accepted)
+  }
 
 }
