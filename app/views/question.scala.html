@@ -1,0 +1,20 @@
+@import forms.QuestionForm
+
+@* #form-define *@
+@(questionForm: Form[QuestionForm])(implicit messages: play.api.i18n.Messages)
+@* #form-define *@
+
+@* #form-user *@
+@helper.form(action = routes.QuestionController.submit_question()) {
+    @helper.inputText(questionForm("question"))
+    @helper.inputText(questionForm("short_answer"))
+    @helper.inputText(questionForm("long_answer"))
+    @helper.inputText(questionForm("difficulty"))
+    @helper.repeat(questionForm("tags")) { tag =>
+    @helper.inputText(tag)
+}
+@helper.inputText(questionForm("rate"))
+
+}
+@* #form-user *@
+

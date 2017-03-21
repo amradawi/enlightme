@@ -2,15 +2,21 @@ package controllers
 
 import javax.inject.Inject
 
+import forms.QuestionForm
+import play.api.data._
+import play.api.data.Forms._
 import play.api.libs.json.Json
 import repos.QuestionReposMongoImp
 import play.api.mvc._
 import play.modules.reactivemongo.{MongoController, ReactiveMongoApi, ReactiveMongoComponents}
+
 import scala.concurrent._
 import ExecutionContext.Implicits.global
 import play.modules.reactivemongo.json._
 import play.modules.reactivemongo.json.collection.JSONCollection
 import reactivemongo.bson.{BSONDocument, BSONObjectID}
+import play.api.Play.current
+import play.api.i18n.Messages.Implicits._
 
 /**
   * Created by amradawi on 2017-03-17.
@@ -83,8 +89,34 @@ class QuestionController  @Inject()(val reactiveMongoApi: ReactiveMongoApi) exte
     ))).map(result => Accepted)
   }
 
+  def form = Action { implicit request =>
+    Ok(views.html.question(QuestionController.questionForm))
+  }
+
   def get_random_question() = Action.async { implicit  request =>
     questionsRepo.randomDocument().map(question => Ok(Json.toJson(question)))
   }
 
+  def submit_question() = Action.async(parse.form(QuestionController.questionForm)) { implicit request =>
+    val questionData = request.body
+    questionsRepo.save(BSONDocument(
+      Question -> questionData.question,
+      Answer -> questionData.short_answer,
+      DetailedAnswer -> questionData.long_answer,
+      Tags -> questionData.tags,
+      Rate -> questionData.rate
+    )).map(result => Created)
+  }
+
+  object QuestionController {
+    val questionForm = Form(mapping(
+      "question" -> nonEmptyText,
+      "short_answer" -> nonEmptyText,
+      "long_answer" -> text,
+      "difficulty" -> nonEmptyText,
+      "tags" -> list(text),
+      "rate" -> number
+    )(QuestionForm.apply)(QuestionForm.unapply))
+
+  }
 }

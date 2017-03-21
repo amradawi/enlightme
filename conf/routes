@@ -22,5 +22,7 @@ GET        /api/question        controllers.QuestionController.index
 GET        /api/question/random/1 controllers.QuestionController.get_random_question
 GET        /api/question/:id      controllers.QuestionController.read(id: String)
 POST       /api/question          controllers.QuestionController.create
+GET        /api/question_form     controllers.QuestionController.form
+POST       /api/question          controllers.QuestionController.submit_question
 DELETE     /api/question/:id      controllers.QuestionController.delete(id: String)
 PATCH      /api/question/:id      controllers.QuestionController.update(id: String)
