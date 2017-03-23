@@ -23,6 +23,9 @@ GET        /api/question/random/1 controllers.QuestionController.get_random_ques
 GET        /api/question/:id      controllers.QuestionController.read(id: String)
 POST       /api/question          controllers.QuestionController.create
 GET        /api/question_form     controllers.QuestionController.form
+GET        /api/question/with_tag:tag   controllers.QuestionController.get_question_with_tag_id(tag: String)
+GET        /api/question/with_difficulty:difficulty   controllers.QuestionController.get_difficult_questions(difficulty: String)
+GET        /api/question/with_rate:rate   controllers.QuestionController.get_rate_of_questions(rate: String)
 POST       /api/question          controllers.QuestionController.submit_question
 DELETE     /api/question/:id      controllers.QuestionController.delete(id: String)
 PATCH      /api/question/:id      controllers.QuestionController.update(id: String)

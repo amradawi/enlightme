@@ -5,9 +5,9 @@ import play.modules.reactivemongo.ReactiveMongoApi
 import play.modules.reactivemongo.json._
 import play.modules.reactivemongo.json.collection.JSONCollection
 import reactivemongo.api.ReadPreference
+import reactivemongo.api.collections.GenericQueryBuilder
 import reactivemongo.api.commands.WriteResult
 import reactivemongo.bson.{BSONDocument, BSONObjectID}
-
 
 import scala.concurrent.{ExecutionContext, Future}
 /**
@@ -24,6 +24,11 @@ class QuestionReposMongoImp (reactiveMongoApi: ReactiveMongoApi) extends Questio
     cursor.collect[List]()
   }
 
+  def find(query: BSONDocument)(implicit ec: ExecutionContext): Future[List[JsObject]] = {
+    val genericQueryBuilder = collection.find(query)
+    val cursor = genericQueryBuilder.cursor[JsObject](ReadPreference.Primary)
+    cursor.collect[List]()
+  }
   override def select(selector: BSONDocument)(implicit ec: ExecutionContext): Future[Option[JsObject]]= {
     collection.find(selector).one[JsObject]
   }

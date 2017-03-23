@@ -108,6 +108,20 @@ class QuestionController  @Inject()(val reactiveMongoApi: ReactiveMongoApi) exte
     )).map(result => Created)
   }
 
+  def get_question_with_tag_id(tag: String) = Action.async {  implicit request =>
+      val like_tag = "/.*" + tag +  ".*/"
+      val geneircQueryBuilder = BSONDocument(Tags -> like_tag)
+      questionsRepo.find(geneircQueryBuilder).map(questions => Ok(Json.toJson(questions)))
+  }
+
+  def get_difficult_questions(difficulty: String) = Action.async { implicit request =>
+    questionsRepo.find(BSONDocument(Difficulty -> difficulty)).map(question => Ok(Json.toJson(question)))
+  }
+
+  def get_rate_of_questions(rate: String) = Action.async { implicit request =>
+    questionsRepo.find(BSONDocument(Rate -> rate)).map(question => Ok(Json.toJson(question)))
+  }
+
   object QuestionController {
     val questionForm = Form(mapping(
       "question" -> nonEmptyText,
