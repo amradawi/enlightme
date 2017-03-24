@@ -35,31 +35,31 @@ class HomeController @Inject() (val reactiveMongoApi: ReactiveMongoApi) extends 
 
   def index = Action { implicit request =>
 
-    val posts = List(
-      Json.obj(
-        "question" -> "What is the difference between stochastic gradient descent (SGD) and gradient descent (GD)?",
-        "short_answer" -> "Both algorithms are methods for finding a set of parameters that minimize a loss function by evaluating parameters against data and then making adjustments.\n\nIn standard gradient descent, you'll evaluate all training samples for each set of parameters. This is akin to taking big, slow steps toward the solution.\n\nIn stochastic gradient descent, you'll evaluate only 1 training sample for the set of parameters before updating them. This is akin to taking small, quick steps toward the solution.\n",
-        "long_answer" -> "",
-        "difficulty" -> "easy",
-        "tags" -> "Machine learning",
-        "rate" -> 5
-      ))
-//      Json.obj(
-    //        "name" -> "Widget Two: The Return",
-    //        "description" -> "My second widget",
-    //        "author" -> "Justin"
-    //      ))
-
-    val query = BSONDocument("question" -> BSONDocument("$exists" -> true))
-    val command = Count(query)
-    val result: Future[CountResult] = bsonCollection.runCommand(command)
-
-    result.map { res =>
-      val numberOfDocs: Int = res.value
-      if(numberOfDocs < 1) {
-        jsonCollection.bulkInsert(posts.toStream, ordered = true).foreach(i => Logger.info("Record added."))
-      }
-    }
+//    val posts = List(
+////      Json.obj(
+////        "question" -> "What is the difference between stochastic gradient descent (SGD) and gradient descent (GD)?",
+////        "short_answer" -> "Both algorithms are methods for finding a set of parameters that minimize a loss function by evaluating parameters against data and then making adjustments.\n\nIn standard gradient descent, you'll evaluate all training samples for each set of parameters. This is akin to taking big, slow steps toward the solution.\n\nIn stochastic gradient descent, you'll evaluate only 1 training sample for the set of parameters before updating them. This is akin to taking small, quick steps toward the solution.\n",
+////        "long_answer" -> "",
+////        "difficulty" -> "easy",
+////        "tags" -> "Machine learning",
+////        "rate" -> 5
+////      ))
+////      Json.obj(
+//    //        "name" -> "Widget Two: The Return",
+//    //        "description" -> "My second widget",
+//    //        "author" -> "Justin"
+//    //      ))
+//
+//    val query = BSONDocument("question" -> BSONDocument("$exists" -> true))
+//    val command = Count(query)
+//    val result: Future[CountResult] = bsonCollection.runCommand(command)
+//
+//    result.map { res =>
+//      val numberOfDocs: Int = res.value
+//      if(numberOfDocs < 1) {
+//        jsonCollection.bulkInsert(posts.toStream, ordered = true).foreach(i => Logger.info("Record added."))
+//      }
+//    }
     Ok("Your new application is ready.")
   }
 

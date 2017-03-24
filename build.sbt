@@ -34,6 +34,10 @@ libraryDependencies ++= Seq(
   specs2 % Test
 )
 
+//libraryDependencies ++= Seq(
+//"org.reactivemongo" %% "play2-reactivemongo" % "0.11.14"
+//)
+
 libraryDependencies ++= Seq(
-  "org.reactivemongo" %% "play2-reactivemongo" % "0.11.14"
+  "org.reactivemongo" %% "play2-reactivemongo" % "0.12.1"
 )

@@ -1,0 +1,25 @@
+@(id: Option[String], form: Form[Models.Question])(implicit lang: play.api.i18n.Messages)
+
+@main("Question Editor") {
+<div class="row">
+    <div class="span8">
+        <h2>
+            @if(!id.isDefined) {
+            Add
+            } else {
+            Edit
+            } a question</h2>
+        @helper.form(action = (if(!id.isDefined) routes.QuestionController.create else routes.QuestionController.update(id.get)), 'class -> "form-horizontal") {
+        @helper.textarea(form("question"))
+        @helper.textarea(form("shortAnswer"))
+        @helper.textarea(form("longAnswer"))
+        @helper.textarea(form("difficulty"))
+        @helper.textarea(form("rate"))
+        @helper.textarea(form("tags"))
+        <div class="form-actions">
+            <input class="btn btn-primary" type="submit">
+        </div>
+        }
+    </div>
+</div>
+    }
