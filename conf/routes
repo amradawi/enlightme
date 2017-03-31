@@ -14,7 +14,7 @@ GET     /assets/*file               controllers.Assets.versioned(path="/public",
  
 #QuestionController
 GET        /api/question        controllers.QuestionController.index
-GET        /api/question/random controllers.QuestionController.getRandomQuestion(query: String)
+GET        /api/question/random controllers.QuestionController.getRandomQuestion(query: Int)
 GET        /api/question/:id      controllers.QuestionController.read(id: String)
 POST       /api/question          controllers.QuestionController.create
 PATCH      /api/question/:id      controllers.QuestionController.update(id: String)

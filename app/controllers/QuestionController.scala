@@ -1,53 +1,19 @@
 package controllers
 
-//import java.util.UUID
-//import play.api.libs.json.{JsArray, JsObject, Json}
-//
-//
-//import scala.concurrent._
-//import ExecutionContext.Implicits.global
-//
-//import reactivemongo.api.Cursor
-//import Models.Question
-//
-//import javax.inject.Inject
-//
-//import org.joda.time.DateTime
-//
-//import scala.concurrent.Future
-//
-//import play.api.i18n.{ I18nSupport, MessagesApi }
-//import play.api.mvc.{ Action, Controller, Request }
-//import play.api.libs.json.{ Json, JsObject, JsString }
-//
-////import reactivemongo.api.gridfs.{ GridFS, /*ReadFile*/ }
-//import reactivemongo.play.json.collection.JSONCollection
-//
-//import play.modules.reactivemongo.{
-//MongoController, ReactiveMongoApi, ReactiveMongoComponents
-//}
-//import play.modules.reactivemongo.json._, ImplicitBSONHandlers._
 import javax.inject.Inject
 
 import org.joda.time.DateTime
 
 import scala.concurrent.{Await, Future}
-import play.api.{Logger, db}
-import play.api.Play.current
 import play.api.i18n.{I18nSupport, MessagesApi}
-import play.api.mvc.{Action, Controller, Request}
+import play.api.mvc.Action
 import play.api.libs.concurrent.Execution.Implicits.defaultContext
 import play.api.libs.json.{JsObject, JsString, Json}
-import reactivemongo.api.gridfs.{GridFS, ReadFile}
 import play.modules.reactivemongo.{MongoController, ReactiveMongoApi, ReactiveMongoComponents}
-import play.modules.reactivemongo.json._
 import Models.Question
 import play.modules.reactivemongo.json._
-import reactivemongo.api.collections.bson.BSONCollection
 import reactivemongo.bson.BSONDocument
-//import play.modules.reactivemongo.json.collection.JSONCollection
 import play.api.mvc.Controller
-import play.modules.reactivemongo._
 import scala.concurrent.duration._
 import reactivemongo.play.json.collection.JSONCollection
 
@@ -69,7 +35,6 @@ class QuestionController  @Inject()(val reactiveMongoApi: ReactiveMongoApi,
     * Collection of questions
     */
   def collection = Await.result(reactiveMongoApi.database.map(_.collection[JSONCollection]("questions")), 10.seconds)
-  val r = scala.util.Random
 
   /**
     * Front page should return all questions
@@ -208,9 +173,9 @@ class QuestionController  @Inject()(val reactiveMongoApi: ReactiveMongoApi,
     * @param query
     * @return
     */
-  def getRandomQuestion(query: String)= Action.async { implicit request =>
+  def getRandomQuestion(query: Int)= Action.async { implicit request =>
     implicit val messages = messagesApi.preferred(request)
-    val c = collection.aggregate(collection.BatchCommands.AggregationFramework.Sample(1)).map(_.head[BSONDocument])
+    val c = collection.aggregate(collection.BatchCommands.AggregationFramework.Sample(query)).map(_.head[BSONDocument])
     c.map(questions => Ok(Json.toJson(questions)))
   }
 
