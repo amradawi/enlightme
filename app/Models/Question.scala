@@ -15,8 +15,8 @@ case class Question(
                    shortAnswer: String,
                    longAnswer: String,
                    difficulty: String,
-                   rate: String,
                    tags: String,
+                   rate: String,
                    creationDate: Option[DateTime],
                    updateDate: Option[DateTime]
                    )

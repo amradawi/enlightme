@@ -140,8 +140,7 @@ class QuestionController  @Inject()(val reactiveMongoApi: ReactiveMongoApi,
     * @return
     */
   def questionWithTagId(tag: String) = Action.async {  implicit request =>
-      val like_tag = "/.*" + tag +  ".*/"
-      val c = collection.find(Json.obj("tags"-> like_tag)).cursor[Question]
+      val c = collection.find(Json.obj("tags"-> Json.obj("$regex" -> (".*" + tag +  ".*")))).cursor[Question]
       val futureQuestions = c.collect[List]()
       futureQuestions.map(questions => Ok(Json.toJson(questions)))
   }
@@ -174,7 +173,6 @@ class QuestionController  @Inject()(val reactiveMongoApi: ReactiveMongoApi,
     * @return
     */
   def getRandomQuestion(query: Int)= Action.async { implicit request =>
-    implicit val messages = messagesApi.preferred(request)
     val c = collection.aggregate(collection.BatchCommands.AggregationFramework.Sample(query)).map(_.head[BSONDocument])
     c.map(questions => Ok(Json.toJson(questions)))
   }
