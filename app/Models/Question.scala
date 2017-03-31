@@ -6,9 +6,6 @@ import play.api.data._
 import play.api.data.Forms.{ text, longNumber, mapping, nonEmptyText, optional }
 import play.api.data.validation.Constraints.pattern
 
-import reactivemongo.bson.{
-BSONDateTime, BSONDocument, BSONObjectID
-}
 /**
   * Created by amradawi on 2017-03-24.
   */

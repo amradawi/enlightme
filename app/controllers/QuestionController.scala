@@ -43,6 +43,8 @@ import play.modules.reactivemongo.{MongoController, ReactiveMongoApi, ReactiveMo
 import play.modules.reactivemongo.json._
 import Models.Question
 import play.modules.reactivemongo.json._
+import reactivemongo.api.collections.bson.BSONCollection
+import reactivemongo.bson.BSONDocument
 //import play.modules.reactivemongo.json.collection.JSONCollection
 import play.api.mvc.Controller
 import play.modules.reactivemongo._
@@ -51,7 +53,10 @@ import reactivemongo.play.json.collection.JSONCollection
 
 import scala.util.{Failure, Success}
 
+
+
 /**
+  * Questions Controller
   * Created by amradawi on 2017-03-17.
   */
 class QuestionController  @Inject()(val reactiveMongoApi: ReactiveMongoApi,
@@ -59,10 +64,17 @@ class QuestionController  @Inject()(val reactiveMongoApi: ReactiveMongoApi,
   extends Controller with MongoController with ReactiveMongoComponents{
   import java.util.UUID
 
+  /**
+    *
+    * Collection of questions
+    */
   def collection = Await.result(reactiveMongoApi.database.map(_.collection[JSONCollection]("questions")), 10.seconds)
-
   val r = scala.util.Random
 
+  /**
+    * Front page should return all questions
+    * @return
+    */
   def index = Action.async { implicit request =>
       // let's do our query
       val c = collection.
@@ -75,28 +87,40 @@ class QuestionController  @Inject()(val reactiveMongoApi: ReactiveMongoApi,
 
       //Let's reply with the array
     futureQuestionsList.map { questions =>
-        Ok(questions.toString())
+        Ok(Json.toJson(questions))
       }
   }
-//
-//  def read(id: String) = Action.async {implicit request =>
-//    val futureQuestion = collection.find(Json.obj("_id" -> id)).one[Question]
-//    for{
-//      question <- futureQuestion
-//    }
-//    Ok(question)
-//  }
 
+  /**
+    * Returan a record for a given ID
+    * @param id
+    * @return Json Object
+    */
+  def read(id: String) = Action.async {implicit  request =>
+    implicit val messages = messagesApi.preferred(request)
+    val futureRecord = collection.find(Json.obj("_id" -> id))
+    futureRecord.cursor[Question].collect[List]().map{ q => Ok(Json.toJson(q))}
+  }
+
+  /**
+    * Remove id from collection
+    * @param id
+    * @return
+    */
   def delete(id: String) = Action.async {implicit request =>
     val futureRemove = collection.remove(Json.obj("_id"->id))
     futureRemove.onComplete {
       case Failure(e) => Ok("failed")
       case Success(lasterror) => {
-        Ok("successfully removed document")
+        Ok("successfully removed document" + id)
       }}
       futureRemove.map(result => Accepted)
   }
 
+  /**
+    * Create a new Record in collection
+    * @return
+    */
   def create = Action.async { implicit request =>
     implicit val messages = messagesApi.preferred(request)
 
@@ -112,24 +136,12 @@ class QuestionController  @Inject()(val reactiveMongoApi: ReactiveMongoApi,
       ).map(_ => Redirect(routes.QuestionController.index))
     )
   }
-//  def create = Action.async(BodyParsers.parse.json) { implicit request =>
-//    val question = (request.body \ Question).as[String]
-//    val answer = (request.body \ Answer).as[String]
-//    val detailedAnswer = (request.body \ DetailedAnswer).as[String]
-//    val difficulty = (request.body \ Difficulty).as[String]
-//    val tags =  (request.body \ Tags).as[String]
-//    val rate = (request.body \ Rate).as[Int]
-//
-//    questionsRepo.save(BSONDocument(
-//      Question -> question,
-//      Answer -> answer,
-//      DetailedAnswer -> detailedAnswer,
-//      Difficulty -> difficulty,
-//      Tags -> tags,
-//      Rate -> rate
-//    )).map(result => Created)
-//  }
-//
+
+  /**
+    * Update a collection
+    * @param id
+    * @return
+    */
   def update(id: String) = Action.async { implicit  request =>
     implicit val messages = messagesApi.preferred(request)
     import reactivemongo.bson.BSONDateTime
@@ -138,7 +150,7 @@ class QuestionController  @Inject()(val reactiveMongoApi: ReactiveMongoApi,
         Ok(views.html.updateQuestion(Some(id), errors))),
 
       question => {
-        // create a modifier document, ie a document that contains the update operations to run onto the documents matching the query
+        // create a modifier document, i.e. a document that contains the update operations to run onto the documents matching the query
         val modifier = Json.obj(
           // this modifier will set the fields
           "$set" -> Json.obj(
@@ -149,73 +161,57 @@ class QuestionController  @Inject()(val reactiveMongoApi: ReactiveMongoApi,
             "rate" -> question.rate,
             "difficulty"-> question.difficulty,
             "tags" -> question.tags
-))
+            ))
 
         // ok, let's do the update
         collection.update(Json.obj("_id" -> id), modifier).
           map { _ => Redirect(routes.QuestionController.index) }
       })
-
-
-//    val question = (request.body \ Question).as[String]
-//    val answer = (request.body \ Answer).as[String]
-//    val detailedAnswer = (request.body \ DetailedAnswer).as[String]
-//    val difficulty = (request.body \ Difficulty).as[String]
-//    val tags =  (request.body \ Tags).as[String]
-//    val rate = (request.body \ Rate).as[Int]
-//
-//    questionsRepo.update(BSONDocument(Id -> BSONObjectID(id)), BSONDocument("$set" -> BSONDocument(
-//      Question -> question,
-//      Answer -> answer,
-//      DetailedAnswer -> detailedAnswer,
-//      Difficulty -> difficulty,
-//      Tags -> tags,
-//      Rate -> rate
-//    ))).map(result => Accepted)
   }
 
-//  def form = Action { implicit request =>
-//    Ok(views.html.question(QuestionController.questionForm))
-//  }
-//
-//  def get_random_question() = Action.async { implicit  request =>
-//    questionsRepo.randomDocument().map(question => Ok(Json.toJson(question)))
-//  }
-//
-//  def submit_question() = Action.async(parse.form(QuestionController.questionForm)) { implicit request =>
-//    val questionData = request.body
-//    questionsRepo.save(BSONDocument(
-//      Question -> questionData.question,
-//      Answer -> questionData.short_answer,
-//      DetailedAnswer -> questionData.long_answer,
-//      Tags -> questionData.tags,
-//      Rate -> questionData.rate
-//    )).map(result => Created)
-//  }
-//
-//  def get_question_with_tag_id(tag: String) = Action.async {  implicit request =>
-//      val like_tag = "/.*" + tag +  ".*/"
-//      val geneircQueryBuilder = BSONDocument(Tags -> like_tag)
-//      questionsRepo.find(geneircQueryBuilder).map(questions => Ok(Json.toJson(questions)))
-//  }
-//
-//  def get_questions_with_difficulty(difficulty: String) = Action.async { implicit request =>
-//    questionsRepo.find(BSONDocument(Difficulty -> difficulty)).map(question => Ok(Json.toJson(question)))
-//  }
-//
-//  def get_questions_of_rate(rate: String) = Action.async { implicit request =>
-//    questionsRepo.find(BSONDocument(Rate -> rate)).map(question => Ok(Json.toJson(question)))
-//  }
+  /**
+    * Return questions that match tag
+    * @param tag
+    * @return
+    */
+  def questionWithTagId(tag: String) = Action.async {  implicit request =>
+      val like_tag = "/.*" + tag +  ".*/"
+      val c = collection.find(Json.obj("tags"-> like_tag)).cursor[Question]
+      val futureQuestions = c.collect[List]()
+      futureQuestions.map(questions => Ok(Json.toJson(questions)))
+  }
 
-//  object QuestionController {
-//    val questionForm = Form(mapping(
-//      "question" -> nonEmptyText,
-//      "short_answer" -> nonEmptyText,
-//      "long_answer" -> text,
-//      "difficulty" -> nonEmptyText,
-//      "tags" -> list(text),
-//      "rate" -> number
-//    )(QuestionForm.apply)(QuestionForm.unapply))
-//
-//  }
+  /**
+    * Return questions that has this type of difficulty
+    * @param difficulty
+    * @return
+    */
+  def questionWithDifficultyLevel(difficulty: String) = Action.async {  implicit request =>
+        val c = collection.find(Json.obj("difficulty"-> difficulty)).cursor[Question]
+        val futureQuestions = c.collect[List]()
+        futureQuestions.map(questions => Ok(Json.toJson(questions)))
+  }
+
+  /**
+    * Return questions with the given rate
+    * @param rate
+    * @return
+    */
+  def questionWithRate(rate:String) = Action.async{ implicit request =>
+    val c = collection.find(Json.obj("rate"-> rate)).cursor[Question]
+    val futureQuestions = c.collect[List]()
+    futureQuestions.map(questions => Ok(Json.toJson(questions)))
+  }
+
+  /**
+    * Return random questions
+    * @param query
+    * @return
+    */
+  def getRandomQuestion(query: String)= Action.async { implicit request =>
+    implicit val messages = messagesApi.preferred(request)
+    val c = collection.aggregate(collection.BatchCommands.AggregationFramework.Sample(1)).map(_.head[BSONDocument])
+    c.map(questions => Ok(Json.toJson(questions)))
+  }
+
 }
