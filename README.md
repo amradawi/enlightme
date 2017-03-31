@@ -1,43 +1,22 @@
+## Overview
+Contributors to this project believe the best way to learn something is not by reading it but by reacalling it from your memory. This idea serves as the foundation of this project by gamifying the process to the user in terms of questions.
+
 ## Running orientdb 
 docker run -d --name orientdb -p 2424:2424 -p 2480:2480 -v /tmp/orientdb/databases/:/orientdb/databases -e ORIENTDB_ROOT_PASSWORD=rootpwd orientdb
 
-## building schema
+## Running MongoDb
+docker run --name mongodb -p 27017:27017 -d mongo
+
+## Running the Web APP
 sbt run
 
-## Welcome to GitHub Pages
-
-You can use the [editor on GitHub](https://github.com/amradawi/enlightme/edit/master/README.md) to maintain and preview the content for your website in Markdown files.
-
-Whenever you commit to this repository, GitHub Pages will run [Jekyll](https://jekyllrb.com/) to rebuild the pages in your site, from the content in your Markdown files.
-
-### Markdown
-
-Markdown is a lightweight and easy-to-use syntax for styling your writing. It includes conventions for
-
-```markdown
-Syntax highlighted code block
-
-# Header 1
-## Header 2
-### Header 3
-
-- Bulleted
-- List
-
-1. Numbered
-2. List
-
-**Bold** and _Italic_ and `Code` text
-
-[Link](url) and ![Image](src)
-```
-
-For more details see [GitHub Flavored Markdown](https://guides.github.com/features/mastering-markdown/).
-
-### Jekyll Themes
-
-Your Pages site will use the layout and styles from the Jekyll theme you have selected in your [repository settings](https://github.com/amradawi/enlightme/settings). The name of this theme is saved in the Jekyll `_config.yml` configuration file.
-
-### Support or Contact
-
-Having trouble with Pages? Check out our [documentation](https://help.github.com/categories/github-pages-basics/) or [contact support](https://github.com/contact) and we’ll help you sort it out.
+## On-going plan
+- ETL pipeline
+- SlackBot
+- Front-end webPages
+- auto-completion
+- Indexing
+- Personalization
+- Browser plugin
+- Summarization
+- Question Generator
