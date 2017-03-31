@@ -10,10 +10,13 @@ docker run --name mongodb -p 27017:27017 -d mongo
 ## Running the Web APP
 sbt run
 
-## On-going plan
+## On-going features
 - ETL pipeline
+- Security/Authentication checks
+- Cloud integration
 - SlackBot
-- Front-end webPages
+- Proper MVC
+- Front-end development
 - auto-completion
 - Indexing
 - Personalization
